@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { StatsSection } from "@/components/StatsSection";
 import { HowItWorks } from "@/components/HowItWorks";
 import { WhyTadweer } from "@/components/WhyTadweer";
+import { AboutSection } from "@/components/AboutSection";
 import { CtaBanner } from "@/components/CtaBanner";
 import { Footer } from "@/components/Footer";
 
@@ -15,6 +16,7 @@ export default function LandingPage() {
         <StatsSection />
         <HowItWorks />
         <WhyTadweer />
+        <AboutSection />
         <CtaBanner />
       </main>
       <Footer />

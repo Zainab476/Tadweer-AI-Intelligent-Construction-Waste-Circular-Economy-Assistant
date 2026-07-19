@@ -240,7 +240,7 @@ export default function JobDetails() {
                   <div>
                     <h4 className="text-sm font-semibold text-slate-500 mb-1">Project</h4>
                     <p className="font-semibold text-slate-900 text-lg">{request.projectName}</p>
-                    <p className="text-slate-600 text-sm">Al-Banna Construction Co.</p>
+                    <p className="text-slate-600 text-sm">Vision Contracting Co.</p>
                   </div>
                   <div>
                     <h4 className="text-sm font-semibold text-slate-500 mb-1">Location</h4>
