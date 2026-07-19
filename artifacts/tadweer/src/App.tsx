@@ -11,6 +11,7 @@ import Requests from '@/pages/contractor/Requests';
 import MatchingPage from '@/pages/matching/MatchingPage';
 import DriverDashboard from '@/pages/driver/DriverDashboard';
 import JobDetails from '@/pages/driver/JobDetails';
+import PlantDashboard from '@/pages/plant/PlantDashboard';
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ function Router() {
       <Route path="/matching/:id" component={MatchingPage} />
       <Route path="/driver/dashboard" component={DriverDashboard} />
       <Route path="/driver/job/:id" component={JobDetails} />
+      <Route path="/plant/dashboard" component={PlantDashboard} />
       <Route component={NotFound} />
     </Switch>
   );
