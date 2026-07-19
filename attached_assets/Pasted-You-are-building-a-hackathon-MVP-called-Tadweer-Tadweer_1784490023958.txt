@@ -1,0 +1,186 @@
+You are building a hackathon MVP called Tadweer.
+
+Tadweer is a Saudi circular economy platform that transforms construction waste into recycled resources.
+
+For this phase, ONLY build the project foundation and landing page.
+
+Do not build dashboards, authentication, database, or advanced features yet.
+
+## Goal of Phase 1
+
+Create a professional startup-quality landing page that explains Tadweer and creates a strong first impression for hackathon judges.
+
+## Technology
+
+Use:
+
+- React.js
+- TypeScript
+- Tailwind CSS
+- Modern component structure
+
+Create clean reusable components.
+
+## Project Structure
+
+Prepare folders:
+
+src/
+ ├── components/
+ ├── pages/
+ ├── assets/
+ ├── data/
+ └── utils/
+
+Create a scalable structure for future phases.
+
+## Design Direction
+
+Create a premium sustainability SaaS design.
+
+Style:
+
+- Modern
+- Professional
+- Minimal
+- Saudi green economy theme
+
+Colors:
+
+- Dark green
+- Green
+- White
+- Gray
+
+Add smooth animations.
+
+Make it fully responsive:
+- Desktop
+- Tablet
+- Mobile
+
+## Landing Page Sections
+
+Create:
+
+### 1. Navigation Bar
+
+Logo:
+"Tadweer ♻️"
+
+Menu:
+
+- Home
+- How It Works
+- Impact
+- Network
+
+Buttons:
+
+- Request Waste Pickup
+- Sign In
+
+
+### 2. Hero Section
+
+Title:
+
+"Transform Construction Waste into Sustainable Resources"
+
+Subtitle:
+
+"Tadweer connects construction companies, transport drivers, and recycling plants to build a smarter circular economy in Saudi Arabia."
+
+Buttons:
+
+Primary:
+"Request Waste Pickup"
+
+Secondary:
+"Explore Recycling Network"
+
+
+Add a modern hero illustration showing:
+
+Construction waste → Recycling → New materials
+
+
+### 3. Statistics Section
+
+Create animated cards:
+
+25,000+
+Tons Recycled
+
+
+500+
+Projects Connected
+
+
+1,200+
+Collections Completed
+
+
+15,000+
+CO₂ Reduced
+
+
+### 4. How Tadweer Works
+
+Create 4-step process cards:
+
+Step 1:
+Construction companies submit waste
+
+
+Step 2:
+Smart matching finds recycling solutions
+
+
+Step 3:
+Drivers collect waste
+
+
+Step 4:
+Plants transform waste into materials
+
+
+### 5. Why Tadweer Section
+
+Cards:
+
+Reduce landfill waste
+
+Support Saudi sustainability goals
+
+Connect circular economy partners
+
+Optimize waste transportation
+
+
+### 6. Footer
+
+Include:
+
+Tadweer
+
+Saudi Circular Economy Platform
+
+Social icons (UI only)
+
+
+## Requirements
+
+- No backend
+- No authentication
+- No database
+
+Use static data.
+
+Make the page polished enough for a hackathon presentation.
+
+After completion:
+- Run the project
+- Fix all errors
+- Ensure responsive design
+- Keep code clean for future phases
