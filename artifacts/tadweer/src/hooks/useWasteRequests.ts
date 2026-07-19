@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export type WasteType = "Concrete" | "Steel" | "Wood" | "Mixed Waste";
-export type RequestStatus = "Pending Smart Matching" | "Matched" | "Scheduled" | "Collected" | "Completed";
+export type RequestStatus = "Pending Smart Matching" | "Matched" | "Scheduled" | "On The Way" | "Collected" | "Completed";
 
 export interface WasteRequest {
   id: string;
@@ -13,6 +13,7 @@ export interface WasteRequest {
   notes: string;
   status: RequestStatus;
   createdAt: string;
+  assignedDriverName?: string;
 }
 
 const STORAGE_KEY = "tadweer_waste_requests";
@@ -59,17 +60,32 @@ export function useWasteRequests() {
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
+    let loaded: WasteRequest[] = [];
     if (stored) {
-      try {
-        setRequests(JSON.parse(stored));
-      } catch (e) {
-        setRequests(SEED_DATA);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(SEED_DATA));
-      }
+      try { loaded = JSON.parse(stored); }
+      catch { loaded = SEED_DATA; localStorage.setItem(STORAGE_KEY, JSON.stringify(SEED_DATA)); }
     } else {
-      setRequests(SEED_DATA);
+      loaded = SEED_DATA;
       localStorage.setItem(STORAGE_KEY, JSON.stringify(SEED_DATA));
     }
+
+    if (!loaded.some(r => r.status === "Matched")) {
+      const demoJob: WasteRequest = {
+        id: "driver-demo-001",
+        projectName: "King Abdullah Financial District",
+        wasteType: "Steel",
+        quantity: 85,
+        location: "Riyadh",
+        pickupDate: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
+        notes: "Heavy structural steel, crane access required",
+        status: "Matched",
+        createdAt: new Date().toISOString(),
+      };
+      loaded = [demoJob, ...loaded];
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(loaded));
+    }
+
+    setRequests(loaded);
     setLoaded(true);
   }, []);
 
@@ -88,8 +104,12 @@ export function useWasteRequests() {
     return newRequest.id;
   };
 
-  const updateStatus = (id: string, status: RequestStatus) => {
-    const updated = requests.map(r => r.id === id ? { ...r, status } : r);
+  const updateStatus = (id: string, status: RequestStatus, driverName?: string) => {
+    const updated = requests.map(r =>
+      r.id === id
+        ? { ...r, status, ...(driverName ? { assignedDriverName: driverName } : {}) }
+        : r
+    );
     setRequests(updated);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
   };

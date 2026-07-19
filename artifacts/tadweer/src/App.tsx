@@ -9,6 +9,8 @@ import RequestForm from '@/pages/contractor/RequestForm';
 import Confirmation from '@/pages/contractor/Confirmation';
 import Requests from '@/pages/contractor/Requests';
 import MatchingPage from '@/pages/matching/MatchingPage';
+import DriverDashboard from '@/pages/driver/DriverDashboard';
+import JobDetails from '@/pages/driver/JobDetails';
 
 const queryClient = new QueryClient();
 
@@ -21,6 +23,8 @@ function Router() {
       <Route path="/contractor/confirmation/:id" component={Confirmation} />
       <Route path="/contractor/requests" component={Requests} />
       <Route path="/matching/:id" component={MatchingPage} />
+      <Route path="/driver/dashboard" component={DriverDashboard} />
+      <Route path="/driver/job/:id" component={JobDetails} />
       <Route component={NotFound} />
     </Switch>
   );

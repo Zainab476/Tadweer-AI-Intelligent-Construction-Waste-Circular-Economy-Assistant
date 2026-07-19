@@ -6,7 +6,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Badge } from "@/components/ui/badge";
 
 export function ContractorLayout({ children, title }: { children: React.ReactNode, title?: string }) {
-  const [location] = useLocation();
+  const [location, setLocation] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [demoRole, setDemoRole] = useState("Contractor");
 
@@ -92,7 +92,12 @@ export function ContractorLayout({ children, title }: { children: React.ReactNod
                   className={`px-2 py-1.5 text-sm rounded-sm cursor-pointer hover:bg-slate-100 ${
                     demoRole === role ? "font-medium text-primary" : "text-slate-700"
                   }`}
-                  onClick={() => setDemoRole(role)}
+                  onClick={() => {
+                    setDemoRole(role);
+                    if (role === "Driver") {
+                      setLocation("/driver/dashboard");
+                    }
+                  }}
                 >
                   {role}
                 </div>
