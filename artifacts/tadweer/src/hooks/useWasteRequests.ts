@@ -55,6 +55,7 @@ const SEED_DATA: WasteRequest[] = [
 
 export function useWasteRequests() {
   const [requests, setRequests] = useState<WasteRequest[]>([]);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -69,6 +70,7 @@ export function useWasteRequests() {
       setRequests(SEED_DATA);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(SEED_DATA));
     }
+    setLoaded(true);
   }, []);
 
   const addRequest = (data: Omit<WasteRequest, "id" | "status" | "createdAt">) => {
@@ -86,13 +88,21 @@ export function useWasteRequests() {
     return newRequest.id;
   };
 
+  const updateStatus = (id: string, status: RequestStatus) => {
+    const updated = requests.map(r => r.id === id ? { ...r, status } : r);
+    setRequests(updated);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+  };
+
   const getRequest = (id: string) => {
     return requests.find((req) => req.id === id);
   };
 
   return {
     requests,
+    loaded,
     addRequest,
+    updateStatus,
     getRequest,
   };
 }

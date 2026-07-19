@@ -8,6 +8,7 @@ import Dashboard from '@/pages/contractor/Dashboard';
 import RequestForm from '@/pages/contractor/RequestForm';
 import Confirmation from '@/pages/contractor/Confirmation';
 import Requests from '@/pages/contractor/Requests';
+import MatchingPage from '@/pages/matching/MatchingPage';
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ function Router() {
       <Route path="/contractor/request" component={RequestForm} />
       <Route path="/contractor/confirmation/:id" component={Confirmation} />
       <Route path="/contractor/requests" component={Requests} />
+      <Route path="/matching/:id" component={MatchingPage} />
       <Route component={NotFound} />
     </Switch>
   );

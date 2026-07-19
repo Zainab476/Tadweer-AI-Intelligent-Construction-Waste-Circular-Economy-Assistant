@@ -18,7 +18,7 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
+  show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 300, damping: 24 } }
 };
 
 export default function Confirmation() {
@@ -135,11 +135,11 @@ export default function Confirmation() {
               View Dashboard
             </Button>
             <Button 
-              className="flex-1"
-              onClick={() => setLocation("/contractor/request")}
+              className="flex-1 bg-primary text-white hover:bg-primary/90"
+              onClick={() => setLocation(`/matching/${request.id}`)}
             >
-              <PlusCircle className="mr-2 h-4 w-4" />
-              Submit Another
+              <Zap className="mr-2 h-4 w-4" />
+              Run Smart Match
             </Button>
           </motion.div>
         </motion.div>
