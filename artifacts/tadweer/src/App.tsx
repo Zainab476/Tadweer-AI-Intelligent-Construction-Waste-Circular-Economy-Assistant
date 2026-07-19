@@ -4,6 +4,10 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 import NotFound from '@/pages/not-found';
 import LandingPage from '@/pages/LandingPage';
 import { Route, Switch, Router as WouterRouter } from 'wouter';
+import Dashboard from '@/pages/contractor/Dashboard';
+import RequestForm from '@/pages/contractor/RequestForm';
+import Confirmation from '@/pages/contractor/Confirmation';
+import Requests from '@/pages/contractor/Requests';
 
 const queryClient = new QueryClient();
 
@@ -11,6 +15,10 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={LandingPage} />
+      <Route path="/contractor/dashboard" component={Dashboard} />
+      <Route path="/contractor/request" component={RequestForm} />
+      <Route path="/contractor/confirmation/:id" component={Confirmation} />
+      <Route path="/contractor/requests" component={Requests} />
       <Route component={NotFound} />
     </Switch>
   );

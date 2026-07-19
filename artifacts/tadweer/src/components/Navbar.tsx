@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Recycle, Menu, X } from "lucide-react";
+import { useLocation } from "wouter";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -52,10 +54,16 @@ export function Navbar() {
             ))}
           </ul>
           <div className="flex items-center gap-4">
-            <button className={`text-sm font-semibold transition-colors hover:text-primary ${isScrolled ? "text-foreground" : "text-white"}`}>
+            <button 
+              className={`text-sm font-semibold transition-colors hover:text-primary ${isScrolled ? "text-foreground" : "text-white"}`}
+              onClick={() => setLocation("/contractor/dashboard")}
+            >
               Sign In
             </button>
-            <button className="bg-primary hover:bg-primary/90 text-primary-foreground px-5 py-2.5 rounded-md text-sm font-bold shadow-md hover:shadow-lg transition-all active:scale-95">
+            <button 
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-5 py-2.5 rounded-md text-sm font-bold shadow-md hover:shadow-lg transition-all active:scale-95"
+              onClick={() => setLocation("/contractor/request")}
+            >
               Request Waste Pickup
             </button>
           </div>
@@ -93,10 +101,16 @@ export function Navbar() {
               ))}
             </ul>
             <div className="flex flex-col gap-3 pt-4 border-t border-border">
-              <button className="w-full text-center py-3 border border-input rounded-md font-semibold text-foreground">
+              <button 
+                className="w-full text-center py-3 border border-input rounded-md font-semibold text-foreground"
+                onClick={() => { setMobileMenuOpen(false); setLocation("/contractor/dashboard"); }}
+              >
                 Sign In
               </button>
-              <button className="w-full text-center py-3 bg-primary text-primary-foreground rounded-md font-bold shadow-md">
+              <button 
+                className="w-full text-center py-3 bg-primary text-primary-foreground rounded-md font-bold shadow-md"
+                onClick={() => { setMobileMenuOpen(false); setLocation("/contractor/request"); }}
+              >
                 Request Waste Pickup
               </button>
             </div>
