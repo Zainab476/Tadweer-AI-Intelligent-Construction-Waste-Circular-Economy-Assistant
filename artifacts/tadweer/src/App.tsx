@@ -12,6 +12,7 @@ import MatchingPage from '@/pages/matching/MatchingPage';
 import DriverDashboard from '@/pages/driver/DriverDashboard';
 import JobDetails from '@/pages/driver/JobDetails';
 import PlantDashboard from '@/pages/plant/PlantDashboard';
+import ImpactPage from '@/pages/ImpactPage';
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ function Router() {
       <Route path="/driver/dashboard" component={DriverDashboard} />
       <Route path="/driver/job/:id" component={JobDetails} />
       <Route path="/plant/dashboard" component={PlantDashboard} />
+      <Route path="/impact" component={ImpactPage} />
       <Route component={NotFound} />
     </Switch>
   );
